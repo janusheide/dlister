@@ -3,6 +3,8 @@
 #
 # Distributed under the "BSD 3-Clause License", see LICENSE.
 
+"""Print or save to a file project dependencies from pyproject.toml."""
+
 from __future__ import annotations
 
 import sys
@@ -132,7 +134,7 @@ def cli(args) -> Namespace:
         type=Path,
         help="pipe loggining to file instead of stdout.")
 
-    parser.add_argument("-v", "--version", action="version", version=version("uppd"))
+    parser.add_argument("-v", "--version", action="version", version=version("dlister"))
 
     return parser.parse_args(args)
 
