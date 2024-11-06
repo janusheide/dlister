@@ -69,7 +69,7 @@ Usage
 
 Run::
 
-    dlister test
+    dlister
     packaging==22.0
     tomli==2.0.0; python_version < "3.11"
 
