@@ -3,9 +3,10 @@ News
 
 Lists of changes between versions.
 
-Latest
-------
+1.2.0
+-----
 * Minor: Simpler dependency managment.
+* Minor: Closing infile before exit.
 
 1.1.0
 -----
