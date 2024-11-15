@@ -10,6 +10,7 @@ authors = [
 description = "Print dependencies and optional dependencies from pyproject.toml files."
 dynamic = ["version"]
 readme = "README.rst"
+keywords = ["building", "maintenance", "utility"]
 
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -33,7 +34,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 
-keywords = ["building", "maintenance", "utility"]
+requires-python = ">=3.8"
 
 dependencies = [
     "packaging>=22.0",
