@@ -30,9 +30,11 @@ def test_cli():
     a = vars(cli(["--log-level", "INFO"]))
     assert a["log_file"] is None
     assert a["log_level"] == "INFO"
+    a["infile"].close() # the cli leaves the file open
 
     a = vars(cli(["--skip", "foo", "bar"]))
     assert a["skip"] == ["foo", "bar"]
+    a["infile"].close() # the cli leaves the file open
 
 
 def test_main(tmp_path):

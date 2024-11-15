@@ -14,10 +14,6 @@ from argparse import (
 from importlib.metadata import version
 from logging import basicConfig, getLevelName, getLogger
 from pathlib import Path
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from _typeshed import SupportsRead
 
 from packaging.requirements import Requirement
 from packaging.specifiers import SpecifierSet
@@ -60,7 +56,7 @@ def main(
     *,
     log_file: Path,
     log_level: str,
-    infile: SupportsRead[bytes],
+    infile,
     dependencies: list[str],
     output,
     **kwargs,
@@ -73,8 +69,10 @@ def main(
     )
     try:
         data = load(infile)
+        infile.close()
     except TOMLDecodeError:
         logger.critical(f"Error parsing input toml file: {infile}")
+        infile.close()
         exit(1)
 
     project = data.get("project")
