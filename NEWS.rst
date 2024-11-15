@@ -3,6 +3,10 @@ News
 
 Lists of changes between versions.
 
+Latest
+------
+* Minor: Simpler dependency managment.
+
 1.1.0
 -----
 * Minor: Upgraded dependencies.
