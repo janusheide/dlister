@@ -69,11 +69,11 @@ def main(
     )
     try:
         data = load(infile)
-        infile.close()
     except TOMLDecodeError:
         logger.critical(f"Error parsing input toml file: {infile}")
-        infile.close()
         exit(1)
+    finally:
+        infile.close()
 
     project = data.get("project")
     if project is None:
