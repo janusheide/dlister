@@ -52,7 +52,7 @@ test = [
 ]
 dev = [
     "dlister[test]",
-    "bouillon==2.8.0",
+    "bouillon==2.9.0",
     "build==1.2.2.post1",
     "licensecheck==2024.3",
     "uppd==1.5.0",
