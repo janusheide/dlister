@@ -44,12 +44,10 @@ def list_requirement(
     return None
 
 
-def list_requirements(
-    dependencies: list[str],
-    **kwargs
-) -> list[str]:
+def list_requirements(dependencies: list[str], **kwargs) -> list[str]:
     """Find requirements."""
-    return [str(r) for r in [list_requirement(Requirement(d), **kwargs) for d in dependencies] if r]
+    return [str(r) for r in [
+        list_requirement(Requirement(d), **kwargs) for d in dependencies] if r]
 
 
 def main(
@@ -71,16 +69,17 @@ def main(
         data = load(infile)
     except TOMLDecodeError:
         logger.critical(f"Error parsing input toml file: {infile}")
-        exit(1)
+        sys.exit(1)
     finally:
         infile.close()
 
     project = data.get("project")
     if project is None:
         logger.critical(f"No project section in input file: {infile}")
-        exit(1)
+        sys.exit(1)
 
-    [output.write(f"{r}\n") for r in list_requirements(project.get("dependencies", []), **kwargs)]
+    [output.write(f"{r}\n") for r in list_requirements(
+        project.get("dependencies", []), **kwargs)]
 
     for k,v in project.get("optional-dependencies").items():
         [output.write(f"{r}\n") for r in list_requirements(v, **kwargs)

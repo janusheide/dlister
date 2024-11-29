@@ -12,8 +12,11 @@ from dlister.dlister import cli, list_requirement, main
 
 
 def test_list_requirement():
-    assert list_requirement(Requirement("hejsa>=2.0.1"), match_operators=[">="], skip=[]) == Requirement("hejsa==2.0.1")
-    assert list_requirement(Requirement("hejsa>=2.0.0"), match_operators=[">="], skip=["hejsa"]) is None
+    assert list_requirement(
+        Requirement("hejsa>=2.0.1"), match_operators=[">="], skip=[],
+            ) == Requirement("hejsa==2.0.1")
+    assert list_requirement(
+        Requirement("hejsa>=2.0.0"), match_operators=[">="], skip=["hejsa"]) is None
 
 def test_list_requirements():
     pass
